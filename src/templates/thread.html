@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div id="thread-reply">
+		<textarea id="thread-reply-body"></textarea>
+		<div class="thread-reply-buttons">
+			<div>↷</div>
+			<div>×</div>
+		</div>
+	</div>
+	<div class="content-centre">
+		<div class="thread" id="thread-{{ parent.id }}">
+			<div class="thread-head">
+				<div class="thread-head-button" onclick="window.location.href = '/{{ parent.id }}';"><div>#{{ parent.id }}</div></div>
+				<div class="thread-head-button" onclick=""><img src="static/img/arrow-left.svg"></div>
+				<div class="thread-head-button" onclick="changeChildThreads(this, {{ parent.id }})"><img src="static/img/arrow-down.svg"></div>
+			</div>
+			<div class="thread-body">
+				{{ parent.body }}
+			</div>
+		</div>
+	</div>
+{% endblock %}
